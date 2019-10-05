@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import firebase from './firebase'
-import { end } from 'worker-farm';
+
+/*
+firebase
+  .auth()
+  .createUserWithEmailAndPassword('regisgomesr@gmail.com', 'abc123')
+  .then( user => {
+    // user.displayName = 'Regis Ribeiro'
+    // firebase.auth().updateCurrentUser(user)
+  })
+*/
+
+firebase.auth().onAuthStateChanged(user => {
+  if(user){
+    console.log(user.displayName)
+    user.updateProfile({ displayName: 'Theo Ribeiro' })
+  }
+})
 
 const useDatabase = endpoint => {
   const [data, setData] = useState({})
