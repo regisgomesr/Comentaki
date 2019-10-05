@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import firebase from './firebase'
+import { end } from 'worker-farm';
 
 const useDatabase = endpoint => {
   const [data, setData] = useState({})
@@ -16,6 +17,23 @@ const useDatabase = endpoint => {
     } 
   }, [endpoint])
   return data
+}
+
+const useDatabasePush = endpoint => {
+  const [state, setState] = useState('')
+
+  const save = data => {
+    const ref = firebase.database().ref(endpoint)
+    ref.push(data, err => {
+      if(err){
+        setState('ERROR')
+      }else{
+        setState('SUCESS')
+      }
+    })
+  }
+  return [state, save]
+
 }
 
 const Comments = ({ visible }) => {
@@ -35,10 +53,16 @@ const A = () => {
 function App() {
 
   const [visible, toggle] = useState(true)
+  const [status, save] = useDatabasePush('test')
 
   return (
     <div>
-      <button onClick={() => toggle(!visible)}>Toggle</button>
+      <button onClick={() => { 
+        //toggle(!visible) 
+        save({ valor: 1, b: 2 })
+      }}>Toggle</button>
+      Status: {status}
+       
       <Comments visible={visible} />
       <A />
     </div>
