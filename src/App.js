@@ -36,35 +36,49 @@ const useDatabasePush = endpoint => {
 
 }
 
-const Comments = ({ visible }) => {
-
-  const endpoint = visible ? 'test' : 'test/b'
-  const data = useDatabase(endpoint)
+const Comment = ({ comment }) => {
   return (
-    <pre>{JSON.stringify(data)}</pre>
+    <div>
+      {comment.content} por: {comment.user.name}
+    </div>
   )
 }
 
-const A = () => {
-  const data = useDatabase('test/a')
-  return (<pre>{JSON.stringify(data)}</pre>)
+const Comments = () => {
+
+  const data = useDatabase('comments')
+  if(!data){
+    return <p>Nenhum comentário enviado até o momento!</p>
+  }
+
+  const ids = Object.keys(data)
+  if(ids.length === 0){
+    return <p>Carregando...</p>
+  }
+
+  return ids.map(id => {
+    return <Comment key={id} comment={data[id]} />
+  })
 }
+
 
 function App() {
 
-  const [visible, toggle] = useState(true)
-  const [status, save] = useDatabasePush('test')
+  const [, save] = useDatabasePush('comments')
 
   return (
     <div>
       <button onClick={() => { 
-        //toggle(!visible) 
-        save({ valor: 1, b: 2 })
+        save({ 
+          content: 'Olá Rio das Pedras, Muita mulher bonita!', 
+          user: {
+            id: '1',
+            name: 'Regis'
+          }
+        })
       }}>Toggle</button>
-      Status: {status}
        
-      <Comments visible={visible} />
-      <A />
+      <Comments />
     </div>
   );
 }
