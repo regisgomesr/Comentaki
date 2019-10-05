@@ -36,10 +36,23 @@ const useDatabasePush = endpoint => {
 
 }
 
+const Time = ({ TIMESTAMP }) => {
+  const date = new Date(TIMESTAMP)
+  //console.log(date)
+  const hours = date.getHours()
+  const minutes = '0'+date.getMinutes()
+  const seconds = '0'+date.getSeconds()
+  const day = '0'+(date.getDay()-1)
+  const month = '0'+(date.getMonth()+1)
+  const year = date.getFullYear()
+
+  return `${day.substr(-2)}/${month.substr(-2)}/${year} ${hours}:${minutes.substr(-2)}:${seconds.substr(-2)}`
+}
+
 const Comment = ({ comment }) => {
   return (
     <div>
-      {comment.content} por: {comment.user.name}
+      {comment.content} Criado por: {comment.user.name} Data <Time TIMESTAMP={comment.createdAt} />
     </div>
   )
 }
@@ -61,23 +74,40 @@ const Comments = () => {
   })
 }
 
-
-function App() {
+const NewComment = props => {
 
   const [, save] = useDatabasePush('comments')
+  const [comment, setComment] = useState('')
+
+  const createComment = () => {
+    if(comment !== ''){
+      save({ 
+        content: comment,
+        createdAt: firebase.database.ServerValue.TIMESTAMP,
+        user: {
+          id: '1',
+          name: 'Regis'
+        }
+      })
+      setComment('')
+    }
+  }
 
   return (
     <div>
-      <button onClick={() => { 
-        save({ 
-          content: 'Olá Rio das Pedras, Muita mulher bonita!', 
-          user: {
-            id: '1',
-            name: 'Regis'
-          }
-        })
-      }}>Toggle</button>
-       
+      <textarea value={comment} onChange={evt => setComment(evt.target.value)} />
+      <button onClick={createComment}>Comentar!</button>
+    </div>
+  )
+}
+
+
+function App() {
+
+  return (
+    <div>
+      
+      <NewComment /> 
       <Comments />
     </div>
   );
