@@ -14,7 +14,7 @@ const FormDisplayName = ({ displayName, user }) => {
     }
 
     return(
-        <>
+        <>    
             <input type='text' value={newDisplayName} onChange={onChange} />
             <button onClick={save}>Salvar Nome</button>
         </>
@@ -37,6 +37,7 @@ const UserInfo = () => {
         <>
             <p>Olá { dn }!</p>
             <FormDisplayName displayName={dn} user={auth.user} />
+            <button onClick={auth.signout}>Sair</button>
         </>
     )
 
