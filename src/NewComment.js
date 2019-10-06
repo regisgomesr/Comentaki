@@ -1,11 +1,20 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { useDatabasePush } from './database'
 import firebase from './firebase'
+import { AuthContext } from './auth'
 
-const NewComment = props => {
+const NewComment = () => {
 
     const [, save] = useDatabasePush('comments')
     const [comment, setComment] = useState('')
+    const auth = useContext(AuthContext)
+
+    if(auth.user === null){
+      return null
+    }
+    console.log(auth.user)
+    const { displayName, uid } = auth.user
+    const [ alternativeDisplayName ] = auth.user.email.split('@')
   
     const createComment = () => {
       if(comment !== ''){
@@ -13,8 +22,8 @@ const NewComment = props => {
           content: comment,
           createdAt: firebase.database.ServerValue.TIMESTAMP,
           user: {
-            id: '1',
-            name: 'Regis'
+            id: uid,
+            name: displayName || alternativeDisplayName
           }
         })
         setComment('')
@@ -24,6 +33,7 @@ const NewComment = props => {
     return (
       <div>
         <textarea value={comment} onChange={evt => setComment(evt.target.value)} />
+        <br />
         <button onClick={createComment}>Comentar!</button>
       </div>
     )
