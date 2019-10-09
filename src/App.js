@@ -1,5 +1,5 @@
 import React from 'react'
-import './App.css'
+import { Navbar, NavbarBrand } from 'reactstrap'
 
 import NewComment from './NewComment'
 import Comments from './Comments'
@@ -9,16 +9,17 @@ import SignInUser from './SignInUser'
 
 import { AuthProvider } from './auth'
 
-
-// prop drilling = Perfurando propriedades isso é problematico pq se eu mudar alguma 
-// coisa no meio pode quebrar a aplicacao para resolver isso vamos usar ContextAPI
 function App() {
   
   return (
     <AuthProvider>
       <div>
-        <NewComment />
+        <Navbar color='light' light expand='md'>
+          <NavbarBrand>Comentaki</NavbarBrand>
+        </Navbar>
+        <br/>
         <Comments />
+        <NewComment />
         <CreateUser />
         <SignInUser />
         <UserInfo />
