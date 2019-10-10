@@ -24,12 +24,16 @@ const SignInUser = () => {
                 auth.signInUser.signInUserState.error !== '' &&
                 <p>{ auth.signInUser.signInUserState.error }</p>
             }
-            <input type='text' placeholder='Digite seu e-mail' value={form.email} onChange={onChange('email')} />
-            <input type='password' placeholder='Digite sua senha' value={form.passwd} onChange={onChange('passwd')} />
+            <label>Email:</label>
+            <input type='text' className="form-control" placeholder='Digite seu e-mail' value={form.email} onChange={onChange('email')} />
+            <br/>
+            <label>Senha:</label>
+            <input type='password' className="form-control" placeholder='Digite sua senha' value={form.passwd} onChange={onChange('passwd')} />
             <br />
             <button onClick={() => {
                 auth.signInUser.signInUser(form.email, form.passwd)
-            }}>Entrar</button>
+            }} className='btn btn-primary'>Entrar</button>
+            <br/>
         </ >
     )
 }
