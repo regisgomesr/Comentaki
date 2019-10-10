@@ -27,6 +27,8 @@ const NewComment = () => {
           }
         })
         setComment('')
+      }else if(comment === '') {
+        alert('Digite algo!')
       }
     }
   
