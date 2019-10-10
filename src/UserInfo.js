@@ -10,6 +10,8 @@ const FormDisplayName = ({ displayName, user }) => {
     const save = () => {
         if(newDisplayName !== ''){
             user.updateProfile({ displayName: newDisplayName })
+            window.location.reload()
+            document.getElementById('input-name').focus()
         }
     }
 
@@ -19,7 +21,7 @@ const FormDisplayName = ({ displayName, user }) => {
                 <div className='input-group-prepend'>
                     <span className='input-group-text'>Nome =></span>
                 </div>  
-                <input type='text' value={newDisplayName} onChange={onChange} />
+                <input type='text' value={newDisplayName} onChange={onChange} id='input-name' />
                 <button onClick={save} className='btn btn-primary'>Salvar Nome</button>
             </div>
         </>
