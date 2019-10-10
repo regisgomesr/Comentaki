@@ -1,0 +1,42 @@
+[debug] [2019-10-10T18:13:49.304Z] ----------------------------------------------------------------------
+[debug] [2019-10-10T18:13:49.306Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\Regis\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-10-10T18:13:49.307Z] CLI Version:   7.5.0
+[debug] [2019-10-10T18:13:49.307Z] Platform:      win32
+[debug] [2019-10-10T18:13:49.307Z] Node Version:  v10.15.3
+[debug] [2019-10-10T18:13:49.308Z] Time:          Thu Oct 10 2019 15:13:49 GMT-0300 (GMT-03:00)
+[debug] [2019-10-10T18:13:49.308Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-10-10T18:13:49.318Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-10-10T18:13:49.319Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\Regis\Desktop\curso-DevReactJS\comentaki
+
+Before we get started, keep in mind:
+
+  * You are initializing in an existing Firebase project directory
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[info] i  .firebaserc already has a default project, using comentaki-app-devpleno.
+[debug] [2019-10-10T18:13:59.826Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/comentaki-app-devpleno  
+ 
+[debug] [2019-10-10T18:14:01.250Z] <<< HTTP RESPONSE 200
+[info] 
+=== Database Setup
+[info] 
+[info] Firebase Realtime Database Rules allow you to define how your data should be
+[info] structured and when your data can be read from and written to.
+[info] 
