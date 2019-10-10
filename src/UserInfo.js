@@ -14,9 +14,14 @@ const FormDisplayName = ({ displayName, user }) => {
     }
 
     return(
-        <>    
-            <input type='text' value={newDisplayName} onChange={onChange} />
-            <button onClick={save}>Salvar Nome</button>
+        <>  
+            <div className="input-group flex-nowrap ">
+                <div className='input-group-prepend'>
+                    <span className='input-group-text'>Nome =></span>
+                </div>  
+                <input type='text' value={newDisplayName} onChange={onChange} />
+                <button onClick={save} className='btn btn-primary'>Salvar Nome</button>
+            </div>
         </>
     )
     
@@ -35,9 +40,11 @@ const UserInfo = () => {
     
     return(
         <>
-            <p>Olá { dn }!</p>
+            <h2>Olá { dn }!</h2>
             <FormDisplayName displayName={dn} user={auth.user} />
-            <button onClick={auth.signout}>Sair</button>
+            <div className='text-right'>
+                <button onClick={auth.signout} className='btn btn-danger'>Sair</button>
+            </div>
         </>
     )
 
