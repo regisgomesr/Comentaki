@@ -31,11 +31,13 @@ const NewComment = () => {
     }
   
     return (
-      <div>
-        <textarea value={comment} onChange={evt => setComment(evt.target.value)} />
-        <br />
-        <button onClick={createComment}>Comentar!</button>
-      </div>
+      
+        <div className='form-group'>
+          <label for="New-Comment"><h6>Digite seu Comentário:</h6></label>
+          <textarea id='New-Comment' className='form-control' rows='3'  value={comment} onChange={evt => setComment(evt.target.value)} />
+          <br />
+          <button onClick={createComment} className='btn btn-primary'>Comentar</button>
+        </div>
     )
   }
   export default NewComment
