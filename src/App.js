@@ -20,12 +20,12 @@ function App() {
         </Navbar>
         <br/>
         <div className='container'>
-          <Comments />
-          <NewComment />
+          <UserInfo />
           <CreateUser />
           <br/>
           <SignInUser />
-          <UserInfo />
+          <Comments />
+          <NewComment />
         </div>
       </div>
     </AuthProvider>

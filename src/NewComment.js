@@ -35,7 +35,7 @@ const NewComment = () => {
     return (
       
         <div className='form-group'>
-          <label for="New-Comment"><h6>Digite seu Comentário:</h6></label>
+          <label for='New-Comment'><h6>Digite seu Comentário:</h6></label>
           <textarea id='New-Comment' className='form-control' rows='3'  value={comment} onChange={evt => setComment(evt.target.value)} />
           <br />
           <button onClick={createComment} className='btn btn-primary'>Comentar</button>

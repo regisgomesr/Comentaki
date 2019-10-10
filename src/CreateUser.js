@@ -25,10 +25,10 @@ const CreateUser = () => {
                 <p>{ auth.createUser.createUserState.error }</p>
             }
             <label>Email:</label>
-            <input type='text' className="form-control" placeholder='Digite seu e-mail' value={form.email} onChange={onChange('email')} />
+            <input type='text' className='form-control' placeholder='Digite seu e-mail' value={form.email} onChange={onChange('email')} />
             <br/>
             <label>Senha:</label>
-            <input type='password' className="form-control" placeholder='Digite sua senha' value={form.passwd} onChange={onChange('passwd')} />
+            <input type='password' className='form-control' placeholder='Digite sua senha' value={form.passwd} onChange={onChange('passwd')} />
             <br />
             <button onClick={() => {
                 auth.createUser.createUser(form.email, form.passwd)

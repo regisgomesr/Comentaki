@@ -4,6 +4,8 @@ import { AuthContext } from './auth'
 const FormDisplayName = ({ displayName, user }) => {
     const [newDisplayName, setNewDisplayName] = useState(displayName)
 
+    const auth = useContext(AuthContext)
+
     const onChange = evt => {
         setNewDisplayName(evt.target.value)
     }
@@ -16,7 +18,7 @@ const FormDisplayName = ({ displayName, user }) => {
 
     return(
         <>  
-            <div className="input-group flex-nowrap ">
+            <div className='input-group flex-nowrap '>
                 <div className='input-group-prepend'>
                     <span className='input-group-text'>Nome =></span>
                 </div>  
