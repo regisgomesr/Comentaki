@@ -12,19 +12,24 @@ import { AuthProvider } from './auth'
 function App() {
   
   return (
+    
     <AuthProvider>
       <div>
         <Navbar color='light' light expand='md'>
           <NavbarBrand>Comentaki</NavbarBrand>
         </Navbar>
         <br/>
-        <Comments />
-        <NewComment />
-        <CreateUser />
-        <SignInUser />
-        <UserInfo />
+        <div className='container'>
+          <Comments />
+          <NewComment />
+          <CreateUser />
+          <br/>
+          <SignInUser />
+          <UserInfo />
+        </div>
       </div>
     </AuthProvider>
+    
   )
 }
 export default App
