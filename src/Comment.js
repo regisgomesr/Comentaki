@@ -6,13 +6,14 @@ import './Comment.css'
 
 const Comment = ({ comment }) => {
     const auth = useContext(AuthContext)
+
     return (
-      <div className='comment-container'>
-      <Alert color="primary">
-        <h5>{comment.content}</h5> <p>Criado por: {comment.user.name} Data <Time TIMESTAMP={comment.createdAt} /></p>
-      </Alert>
-        
-      </div>
+      
+        <div className='comment-container'>
+          <Alert color='primary'>
+            <h5>{comment.content}</h5> <p>Criado por: {comment.user.name} Data <Time TIMESTAMP={comment.createdAt} /></p>
+          </Alert>
+        </div>
     )
   }
   export default Comment

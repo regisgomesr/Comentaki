@@ -1,10 +1,18 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useDatabase } from './database'
 import Comment from './Comment'
+import { AuthContext } from './auth'
 
 const Comments = () => {
 
+  const auth = useContext(AuthContext)
     const data = useDatabase('comments')
+
+    
+    if(auth.user === null){
+      return null
+    }
+
     if(!data){
       return <h4 className='text-center'>Nenhum comentário enviado até o momento!</h4>
     }
