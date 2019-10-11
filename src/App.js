@@ -1,6 +1,7 @@
 import React from 'react'
 import { Navbar, NavbarBrand } from 'reactstrap'
 
+import Header from './Header'
 import NewComment from './NewComment'
 import Comments from './Comments'
 import CreateUser from './CreateUser'
@@ -15,9 +16,7 @@ function App() {
     
     <AuthProvider>
       <div>
-        <Navbar color='light' light expand='md'>
-          <NavbarBrand>Comentaki</NavbarBrand>
-        </Navbar>
+        <Header/>
         <br/>
         <div className='container'>
           <UserInfo />

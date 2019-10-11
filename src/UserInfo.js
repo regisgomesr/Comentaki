@@ -4,8 +4,6 @@ import { AuthContext } from './auth'
 const FormDisplayName = ({ displayName, user }) => {
     const [newDisplayName, setNewDisplayName] = useState(displayName)
 
-    const auth = useContext(AuthContext)
-
     const onChange = evt => {
         setNewDisplayName(evt.target.value)
     }
@@ -45,9 +43,6 @@ const UserInfo = () => {
         <>
             <h2>Olá { dn }!</h2>
             <FormDisplayName displayName={dn} user={auth.user} />
-            <div className='text-right'>
-                <button onClick={auth.signout} className='btn btn-danger'>Sair</button>
-            </div>
         </>
     )
 
